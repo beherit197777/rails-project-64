@@ -1,7 +1,23 @@
-   nav
-     - if user_signed_in?
-       = link_to 'Выйти', destroy_user_session_path, method: :delete
-     - else
-       = link_to 'Войти', new_user_session_path
-       = link_to 'Зарегистрироваться', new_user_registration_path
+doctype html
+html lang='ru'
+  head
+    title = t('.title')
+    = csrf_meta_tags
+    = csp_meta_tag
+    meta charset='utf-8'
+    meta name='keywords' content='blog posts users public'
+    meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
+    meta content='width=device-width,initial-scale=1' name='viewport'
+    = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module', defer: true
+    = favicon_link_tag asset_path('favicon.ico')
+
+  body.pt-5
+    header.navbar.bg-body-tertiary.navbar-expand-md.fixed-top.shadow-sm
+      = render 'layouts/shared/nav'
+
+    main.container.mt-2.py-3
+      = render 'layouts/shared/flash'
+
+      = yield
    
