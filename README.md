@@ -1,24 +1,45 @@
-# README
+# Collective blog
+[![Actions Status](https://github.com/beherit1977777/rails-project-64/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/beherit1977777/rails-project-64/actions)
+[![CI](https://github.com/beherit1977777/rails-project-64/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/beherit1977777/rails-project-64/actions/workflows/ci.yml)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple blog engine on Ruby on Rails.
 
-Things you may want to cover:
+Users can read posts, publish their own posts, leave comments on posts and comments and like posts.
 
-* Ruby version
+The [demo](https://rails-project-64-rixq.onrender.com) is published on [render](https://render.com/) service
 
-* System dependencies
+### Implementation Features
 
-* Configuration
+* Authentication with [devise](https://github.com/heartcombo/devise)
+* Adaptive UI with [bootstrap](https://getbootstrap.com)
+* Hierarchy of comments witn [ancestry](https://github.com/stefankroes/ancestry)
 
-* Database creation
+### Development
 
-* Database initialization
+#### Requirements
 
-* How to run the test suite
+* Ruby 3.2.2 or higher
 
-* Services (job queues, cache servers, search engines, etc.)
+#### Local start
 
-* Deployment instructions
+To install dependencies and prepare local database, run: 
+```shell
+make install
+```
 
-* ...
+To run locally, enter:
+```shell
+make start
+```
+And open your browser at http://localhost:3000
+
+#### Tests and linter check
+
+Tests can be start using:
+```shell
+make test 
+```
+
+Linter check can be run with:
+```shell
+make lint 
