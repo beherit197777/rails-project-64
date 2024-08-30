@@ -1,0 +1,19 @@
+ru:
+  simple_form:
+    "yes": 'Да'
+    "no": 'Нет'
+    required:
+      text: 'не может быть пустым'
+      mark: '*'
+    error_notification:
+      default_message: "Пожалуйста, исправьте ошибки:"
+    hint:
+      length: "От %{min} до %{max} символов"
+    post:
+      publish: Опубликовать
+      create:
+        success: 'Пост опубликован'
+        fail: 'Не удалось создать пост. Проверьте введенные данные'
+    comment:
+      comment: Оставить комментарий
+      reply: ответить

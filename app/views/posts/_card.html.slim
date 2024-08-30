@@ -1,0 +1,10 @@
+.col-md-12
+  .card.mb-3
+    .card-body
+      h5.card-title
+        = link_to post.title, post_path(post), { class: 'link-dark text-decoration-none' }
+      .card-text.mb-2 = post.body.truncate(300, omission: '...')
+      .text-right.small.text-muted.mt-auto
+        span.me-2 = "#{t('post.liked')}: #{post.likes.size}"
+        span.me-2 = time_ago_in_words post.created_at
+        span = post.creator.email

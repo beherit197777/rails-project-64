@@ -1,28 +1,28 @@
-.container.d-flex
-  = link_to root_path, class: 'd-flex align-items-center navbar-brand me-0' do
-    = image_tag asset_path('logo.svg'), width: 24, alt: 'logo', class: 'bi me-2'
-    span = t('.title')
+/ .container.d-flex
+/   = link_to root_path, class: 'd-flex align-items-center navbar-brand me-0' do
+/     = image_tag asset_path('logo.svg'), width: 24, alt: 'logo', class: 'bi me-2'
+/     span = t('.title')
 
-  .navbar-nav.flex-grow-1.align-items-center.pe-md-5.justify-content-md-end
-    - if user_signed_in?
-      = link_to t('.new_post'), new_post_path,
-          class: "nav-link #{'active' if current_page?(new_post_path)}"
+/   .navbar-nav.flex-grow-1.align-items-center.pe-md-5.justify-content-md-end
+/     - if user_signed_in?
+/       = link_to t('.new_post'), new_post_path,
+/           class: "nav-link #{'active' if current_page?(new_post_path)}"
 
-  button.navbar-toggler( type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse'
-    aria-controls='navbarCollapse' aria-expanded='false' aria-label='Toggle navigation')
-    span.navbar-toggler-icon
+/   button.navbar-toggler( type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse'
+/     aria-controls='navbarCollapse' aria-expanded='false' aria-label='Toggle navigation')
+/     span.navbar-toggler-icon
 
-  .collapse.navbar-collapse.flex-grow-0 id='navbarCollapse'
-    ul.navbar-nav.gap-md-2.ms-auto.align-items-end.my-2.my-md-0
-      - if user_signed_in?
-        li.py-2.flex-shrink-1
-          strong.text-muted
-            = current_user.email
+/   .collapse.navbar-collapse.flex-grow-0 id='navbarCollapse'
+/     ul.navbar-nav.gap-md-2.ms-auto.align-items-end.my-2.my-md-0
+/       - if user_signed_in?
+/         li.py-2.flex-shrink-1
+/           strong.text-muted
+/             = current_user.email
 
-        li = link_to t('.logout'), destroy_user_session_path, class: 'nav-link px-2',
-          data: { turbo_method: :delete }
-      - else
-        li = link_to t('.sign_in'), new_user_session_path,
-          class: "nav-link px-2 #{'active' if current_page?(new_user_session_path)}"
-        li = link_to t('.sign_up'), new_user_registration_path,
-          class: "nav-link px-2 #{'active' if current_page?(new_user_registration_path)}"
+/         li = link_to t('.logout'), destroy_user_session_path, class: 'nav-link px-2',
+/           data: { turbo_method: :delete }
+/       - else
+/         li = link_to t('.sign_in'), new_user_session_path,
+/           class: "nav-link px-2 #{'active' if current_page?(new_user_session_path)}"
+/         li = link_to t('.sign_up'), new_user_registration_path,
+/           class: "nav-link px-2 #{'active' if current_page?(new_user_registration_path)}"
