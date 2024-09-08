@@ -1,0 +1,21 @@
+ - comments.each do |comment, sub_comments|
+  .card.mt-2.rounded-0 id=comment.id
+    .card-header.border-0
+      a.me-2 href="##{comment.id}"
+        | #
+      span.me-2
+        = comment.user.email
+      span.fs-6.text-muted
+        = comment.created_at.strftime('%e %b., %H:%M')
+    .card-body.border-0
+      = comment.content
+    - if comments.any?
+      ul
+        = render('posts/comments/comments_with_nested', comments: sub_comments)
+    - if user_signed_in?
+      .card-footer.border-0
+        a.small.text-muted data-bs-toggle='collapse' href="#response#{comment.id}"
+          = t('reply')
+        .collapse data-bs-target="response#{comment.id}" id="response#{comment.id}"
+          .card.card-body
+            = render 'posts/comments/form', comment: comment.children.new, url: post_comments_path(comment.post)

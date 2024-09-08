@@ -1,28 +1,18 @@
-/ .container.d-flex
-/   = link_to root_path, class: 'd-flex align-items-center navbar-brand me-0' do
-/     = image_tag asset_path('logo.svg'), width: 24, alt: 'logo', class: 'bi me-2'
-/     span = t('.title')
-
-/   .navbar-nav.flex-grow-1.align-items-center.pe-md-5.justify-content-md-end
-/     - if user_signed_in?
-/       = link_to t('.new_post'), new_post_path,
-/           class: "nav-link #{'active' if current_page?(new_post_path)}"
-
-/   button.navbar-toggler( type='button' data-bs-toggle='collapse' data-bs-target='#navbarCollapse'
-/     aria-controls='navbarCollapse' aria-expanded='false' aria-label='Toggle navigation')
-/     span.navbar-toggler-icon
-
-/   .collapse.navbar-collapse.flex-grow-0 id='navbarCollapse'
-/     ul.navbar-nav.gap-md-2.ms-auto.align-items-end.my-2.my-md-0
-/       - if user_signed_in?
-/         li.py-2.flex-shrink-1
-/           strong.text-muted
-/             = current_user.email
-
-/         li = link_to t('.logout'), destroy_user_session_path, class: 'nav-link px-2',
-/           data: { turbo_method: :delete }
-/       - else
-/         li = link_to t('.sign_in'), new_user_session_path,
-/           class: "nav-link px-2 #{'active' if current_page?(new_user_session_path)}"
-/         li = link_to t('.sign_up'), new_user_registration_path,
-/           class: "nav-link px-2 #{'active' if current_page?(new_user_registration_path)}"
+.container.mb-2
+  .d-flex.flex-wrap.align-items-center.py-2.border-bottom
+    .navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
+      a.navbar-brand.m-2(href='/')
+        = image_tag asset_path('logo.png'), width: 30, alt: t('.hexlet_logo')
+      ul.nav.nav-pills.flex-grow-1.navbar-nav.justify-content-end.gap-3.m-2
+        - if user_signed_in?
+          li.nav-item
+            = link_to current_user.email, '#', class: 'nav-link disabled'
+          li.nav-item
+            = link_to t('new_post'), new_post_path, class: 'nav-link'
+          li.nav-item
+            = button_to t('sign_out'), destroy_user_session_path, method: :delete, class: 'nav-link'
+        - else
+          li.nav-item
+            = link_to t('sign_in'), new_user_session_path, class: 'nav-link'
+          li.nav-item
+            = link_to t('sign_up'), new_user_registration_path, class: 'nav-link'

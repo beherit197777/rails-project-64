@@ -1,5 +1,0 @@
-= simple_form_for @post do |f|
-  = f.input :title, hint: t('simple_form.hint.length', min: 5, max: 255)
-  = f.association :category, required: true
-  = f.input :body, as: 'text', hint: t('simple_form.hint.length', min: 200, max: 4000), input_html: { rows: 10 }
-  = f.button :submit, t('simple_form.post.publish'), class: 'btn-primary mt-3'

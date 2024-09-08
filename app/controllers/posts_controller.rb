@@ -8,33 +8,30 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
-    @comments = @post.comments.includes(:user).arrange(order: { created_at: :desc })
-    @user_like = @post.like_by_user(current_user)
+    @post = Post.find params[:id]
+    @comments = @post.comments.includes(:user).arrange
+    @like = @post.likes.find_by(user: current_user)
+    @comment = PostComment.new
   end
 
-  # GET /posts/new
   def new
     @post = Post.new
   end
 
-  # POST /posts or /posts.json
   def create
-    @post = current_user.posts.new(post_params)
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to post_url(@post), notice: I18n.t('simple_form.post.create.success') }
-      else
-        flash.now[:error] = I18n.t('simple_form.post.create.fail')
-        format.html { render :new, status: :unprocessable_entity }
-      end
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      flash[:notice] = I18n.t('flash.notice.post_published')
+      redirect_to post_path(@post)
+    else
+      flash[:error] = I18n.t('flash.error.post_not_published')
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :category_id, :user_id)
+    params.require(:post).permit(:title, :body, :category_id)
   end
 end

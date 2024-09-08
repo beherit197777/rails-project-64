@@ -1,12 +1,31 @@
 ol.breadcrumb
-  li.breadcrumb-item = link_to t('post.show.all_posts_link'), posts_path
-  li.breadcrumb-item.active = @post.category.name
-.row.justify-content-center.mt-4
-= render partial: 'post', locals: { post: @post, user_like: @user_like }
+  li.breadcrumb-item
+    = link_to t('all_posts'), root_path
+  li.breadcrumb-item.active
+    = @post.category.name
+h1
+  = @post.title
+p
+  = @post.body
 
-#comments-section.lead.mt-3
-  span = t('post.show.comments')
-  - if user_signed_in?
-    = render 'comments/form'
-  - @comments.each do |comment, children|
-    = render partial: 'comments/card', locals: { comment:, children: }
+.d-flex.justify-content-between.mt-5
+  = "#{@post.creator.email} #{time_ago_in_words(@post.created_at)}"
+  .d-flex.align-items-center
+    span.me-2= @post.likes.count
+    - if user_signed_in?
+      - if @like
+        = button_to post_like_path(@post, @like), method: :delete, class: 'btn btn-light' do
+          i.bi.bi-hand-thumbs-up-fill
+      - else
+        = button_to post_likes_path(@post), class: 'btn btn-light', data: { turbo_method: :post } do
+          i.bi.bi-hand-thumbs-up
+    - else
+      a.link-dark
+        i.bi.bi-hand-thumbs-up
+
+- if user_signed_in?
+  h4
+    = t('comments')
+  = render 'posts/comments/form', comment: @comment, url: post_comments_path(@post)
+
+= render('posts/comments/comments_with_nested', comments: @comments)

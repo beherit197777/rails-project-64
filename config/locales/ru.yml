@@ -1,0 +1,28 @@
+ru:
+  flash:
+    notice:
+      post_published: 'Пост опубликован'
+      comment_published: 'Комментарий опубликован'
+    error:
+      post_not_published: Не удалось создать пост. Проверьте введенные данные
+      comment_not_published: Тело комментария не может быть пустым.
+  ancestry:
+    no_child_for_new_record: "Нет потомков для новой записи."
+  new_post: "Новый пост"
+  sign_in: Войти
+  sign_up: Зарегистрироваться
+  signup: Регистрация
+  sign_out: Выйти
+  title: Коллективный блог
+  likes: "Понравилось: %{count}"
+  all_posts: Все посты
+  comments: Комментарии
+  reply: Ответить
+  datetime:
+    distance_in_words:
+      x_minutes:
+        one: "1 минута"
+        few: "%{count} минуты"
+        many: "%{count} минут"
+        other: "%{count} минут"
+  

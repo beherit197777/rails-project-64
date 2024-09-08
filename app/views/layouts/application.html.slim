@@ -1,42 +1,21 @@
-<!DOCTYPE html>
-html lang='en'
+doctype html
+html
   head
-    meta charset='UTF-8'/
-    meta name='viewport' content='width=device-width, initial-scale=1.0'/
-    title = t('shared.title')
+    title = t('title')
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    == csrf_meta_tags
+    == csp_meta_tag
+    == stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
+    == javascript_importmap_tags
 
-    =csrf_meta_tags
-    =csp_meta_tag
+    body.d-flex.flex-column.h-100
+    = render 'layouts/shared/nav'
 
-    =stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
-    =javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module'
-  body.d-flex.flex-column.h-100
-    .container.mb-2
-      .d-flex.flex-wrap.align-items-center.py-2.border-bottom
-        = link_to image_tag('logo.jpg', width: '30', alt: 'logo.jpg'), root_path, class: 'navbar navbar-expand-md navbar-light me-auto'
-        .ul.nav
-          - if user_signed_in?
-            li.nav-item
-              p.nav-link.disabled = current_user.email
-            li.nav-item = link_to t('shared.new_post'), new_post_path, class: 'nav-link link-dark'
-            li.nav-item = link_to t('shared.logout'), destroy_user_session_path, data: { 'turbo-method': :delete }, class: 'nav-link link-dark'
-          - else
-            li.nav-item = link_to t('shared.sign_in'), new_user_session_path, class: 'nav-link link-dark'
-            li.nav-item = link_to t('shared.sign_up'), new_user_registration_path, class: 'nav-link link-dark'
+    main
+      .mt-4.mb-5.pb-5
+        .container
+          .p-4.align-items-center
+            .mb-4
+              = render 'layouts/shared/flash'
 
-    .container.mb-4
-      - if flash.any?
-        - flash.each do |type, msg|
-          - case type
-          - when 'alert'
-            .alert.alert-info
-              = msg
-          - when 'notice'
-            .alert.alert-success
-              = msg
-          - when 'error'
-            .alert.alert-danger
-              = msg
-          - else
-            p = "Unhandled notice: #{type} - #{msg}"
-      = yield
+            == yield

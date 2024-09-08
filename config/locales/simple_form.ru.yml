@@ -1,0 +1,16 @@
+ru:
+  simple_form:
+    hints:
+      defaults:
+        title: '5-255 символов'
+        body: 'От 200 до 4000 символов'
+        password: '(минимум 6 знаков)'
+  helpers:
+    submit:
+      post:
+        create: Опубликовать
+      post_comment:
+        create: Оставить комментарий
+      user:
+        create: Регистрация
+

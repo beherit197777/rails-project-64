@@ -1,2 +1,8 @@
-h1 = t('post.new.title')
-= render 'form', post: @post
+h1
+  = t('new_post').capitalize
+
+= simple_form_for(@post) do |f|
+  = f.input :title
+  = f.association :category, required: true
+  = f.input :body
+  = f.button :submit, class: 'btn btn-primary mt-3'

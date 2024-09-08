@@ -1,0 +1,13 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+ru:
+  devise:
+    failure:
+      not_found_in_database: "Неправильный Email или пароль."
+      invalid: "Неправильный Email или пароль."
+      unauthenticated: "Вам необходимо войти в систему или зарегистрироваться."
+    registrations:
+      signed_up: "Добро пожаловать! Вы успешно зарегистрировались."
+    sessions:
+      signed_in: "Вход в систему выполнен."
+      signed_out: "Выход из системы выполнен."

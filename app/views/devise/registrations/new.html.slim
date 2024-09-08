@@ -1,0 +1,8 @@
+h2
+  = t('signup')
+= simple_form_for(@user, url: registration_path(@user)) do |f|
+  = f.input :email, autofocus: true, autocomplete: 'email'
+  = f.input :password, autocomplete: 'new-password'
+  = f.input :password_confirmation, autocomplete: 'new-password'
+  = f.submit t('signup'), class: 'btn btn-primary'
+= link_to t('sign_in'), new_session_path(@user)
