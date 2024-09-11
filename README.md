@@ -1,6 +1,6 @@
 # Collective blog
-[![Actions Status](https://github.com/beherit1977777/rails-project-64/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/beherit1977777/rails-project-64/actions)
-[![CI](https://github.com/beherit1977777/rails-project-64/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/beherit1977777/rails-project-64/actions/workflows/ci.yml)
+[![Actions Status](https://github.com/beherit1977777/rails-project-64/workflows/hexlet-check.yml/badge.svg)](https://github.com/beherit1977777/rails-project-64/actions)
+[![CI](https://github.com/beherit1977777/rails-project-64/workflows/ci.yml/badge.svg)](https://github.com/beherit1977777/rails-project-64/actions)
 
 Simple blog engine on Ruby on Rails.
 
