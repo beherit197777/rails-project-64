@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -15,25 +15,25 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
   end
 
-  test 'should get index' do
+  test "should get index" do
     get posts_path
 
     assert_response :success
   end
 
-  test 'should get show' do
+  test "should get show" do
     get post_path(@post)
 
     assert_response :success
   end
 
-  test 'should get new' do
+  test "should get new" do
     get new_post_path
 
     assert_response :success
   end
 
-  test 'should get create' do
+  test "should get create" do
     post posts_url, params: { post: @attrs }
 
     post = Post.find_by @attrs

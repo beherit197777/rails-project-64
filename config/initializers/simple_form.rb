@@ -75,7 +75,7 @@ SimpleForm.setup do |config|
   config.boolean_style = :nested
 
   # Default class for buttons
-  config.button_class = 'btn'
+  config.button_class = "btn"
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.
@@ -86,7 +86,7 @@ SimpleForm.setup do |config|
   config.error_notification_tag = :div
 
   # CSS class to add for error notification helper.
-  config.error_notification_class = 'error_notification'
+  config.error_notification_class = "error_notification"
 
   # Series of attempts to detect a default label method for collection.
   # config.collection_label_methods = [ :to_label, :name, :title, :to_s ]
@@ -162,14 +162,14 @@ SimpleForm.setup do |config|
   # config.input_class = nil
 
   # Define the default class of the input wrapper of the boolean input.
-  config.boolean_label_class = 'checkbox'
+  config.boolean_label_class = "checkbox"
 
   # Defines if the default input wrapper class should be included in radio
   # collection wrappers.
   # config.include_default_input_wrapper_class = true
 
   # Defines which i18n scope will be used in Simple Form.
-  config.i18n_scope = 'simple_form'
+  config.i18n_scope = "simple_form"
 
   # Defines validation classes to the input_field. By default it's nil.
   # config.input_field_valid_class = 'is-valid'
