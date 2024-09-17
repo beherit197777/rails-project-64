@@ -27,8 +27,8 @@ Metrics/BlockLength:
   Exclude:
     - 'config/**/*'
 
-Style/FrozenStringLiteralComment:
-  Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
 
 Style/SymbolArray:
   Enabled: false    
