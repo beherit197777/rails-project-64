@@ -1,6 +1,6 @@
 databases:
   - name: rails_project_64
-    databaseName: rails_project_64_production
+    databaseName: rails_project_64
     user: rails_project_64
     plan: free
 
