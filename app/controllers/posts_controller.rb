@@ -21,10 +21,10 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:notice] = I18n.t("flash.notice.post_published")
+      flash[:notice] = I18n.t('flash.notice.post_published')
       redirect_to post_path(@post)
     else
-      flash[:error] = I18n.t("flash.error.post_not_published")
+      flash[:error] = I18n.t('flash.error.post_not_published')
       render :new, status: :unprocessable_entity
     end
   end
