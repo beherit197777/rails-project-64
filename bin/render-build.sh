@@ -13,17 +13,16 @@ if [ -f yarn.lock ]; then
   yarn install
 fi
 
-# Создание базы данных (если она не существует)
-# bundle exec rake db:create || true
-
+bundle exec rake  db:drop db:create db:schema:load
+   
 # Миграция базы данных
-bundle exec rake db:migrate
+bundle exec rake  db:migrate
 
 # Заполнение базы данных начальными данными
 bundle exec rake db:seed
 
 # Компиляция ассетов
-bundle exec rake assets:precompile
+bundle exec rake  assets:precompile
 
 # Очистка ассетов (убедитесь, что такая задача существует)
-bundle exec rake assets:clean
+bundle exec rake  assets:clean
