@@ -14,7 +14,7 @@ if [ -f yarn.lock ]; then
 fi
 
 # Создание базы данных (если она не существует)
-bundle exec rake db:create || true
+# bundle exec rake db:create || true
 
 # Миграция базы данных
 bundle exec rake db:migrate
