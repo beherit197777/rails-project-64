@@ -11,7 +11,7 @@ p
 .d-flex.justify-content-between.mt-5
   = "#{@post.creator.email} #{time_ago_in_words(@post.created_at)}"
   .d-flex.align-items-center
-    span.me-2= @post.likes.count
+    span.me-2 = @post.likes.count
     - if user_signed_in?
       - if @like
         = button_to post_like_path(@post, @like), method: :delete, class: 'btn btn-light' do
@@ -29,3 +29,4 @@ p
   = render 'posts/comments/form', comment: @comment, url: post_comments_path(@post)
 
 = render('posts/comments/comments_with_nested', comments: @comments)
+
