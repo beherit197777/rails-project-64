@@ -26,3 +26,9 @@ Layout/LineLength:
 Metrics/BlockLength:
   Exclude:
     - 'config/**/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false    
