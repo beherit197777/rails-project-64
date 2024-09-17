@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy, class_name: 'PostComment'
   has_many :likes, dependent: :destroy, class_name: 'PostLike'
 
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
 end
