@@ -13,7 +13,6 @@ if [ -f yarn.lock ]; then
   yarn install
 fi
 
-
 bundle exec rake  db:migrate
 
 # Заполнение базы данных начальными данными

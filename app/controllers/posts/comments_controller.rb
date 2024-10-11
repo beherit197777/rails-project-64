@@ -7,11 +7,13 @@ module Posts
     def create
       @comment = resource_post.comments.build(comment_params)
       @comment.user = current_user
+
       if @comment.save
         flash[:notice] = I18n.t('flash.notice.comment_published')
       else
         flash[:error] = I18n.t('flash.error.comment_not_published')
       end
+
       redirect_to post_path(resource_post)
     end
 

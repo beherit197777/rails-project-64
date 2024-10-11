@@ -20,6 +20,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+
     if @post.save
       flash[:notice] = I18n.t('flash.notice.post_published')
       redirect_to post_path(@post)
