@@ -33,7 +33,7 @@ ru:
     error:
       post_not_published: Не удалось создать пост. Проверьте введенные данные
       comment_not_published: Тело комментария не может быть пустым.
-      invalid_parent_comment: "Родительский комментарий принадлежит другому посту."
+      invalid_parent_comment: "Родительский комментарий принадлежит другому посту"
   ancestry:
     no_child_for_new_record: "Нет потомков для новой записи."
   new_post: "Новый пост"
