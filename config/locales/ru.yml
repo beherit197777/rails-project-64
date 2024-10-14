@@ -1,9 +1,23 @@
 ru:
+  support:
+    array:
+      words_connector: " и "         # Соединитель для списка из более чем двух элементов
+      two_words_connector: " и "     # Соединитель для двух элементов
+      last_word_connector: " и "
   activerecord:
     errors:
       models:
         user:
           attributes:
+            title:
+              blank: "Название не может быть пустым"
+              too_short: "Название не может быть меньше %{count} символов"
+              too_long: "Название не может быть больше %{count} символов"
+              category:
+                blank: "Категория не может отсутствовать"
+              content:
+                blank: "Содержание не может быть пустым"
+                too_short: "Содержание не может быть меньше %{count} символов"
             email:
               blank: "Электронная почта не может быть пустой"
               taken: "Этот адрес электронной почты уже занят"
