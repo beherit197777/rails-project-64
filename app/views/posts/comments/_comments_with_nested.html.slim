@@ -10,10 +10,10 @@
         = comment.created_at.strftime('%e %b., %H:%M')
     .card-body.border-0
       = comment.content
-    - if comments.any?
+    - if sub_comments.any?
       ul
         = render('posts/comments/comments_with_nested', comments: sub_comments)
     - if user_signed_in?
       .card-footer.border-0
         .card.card-body
-          = render 'posts/comments/form', comment: comment.children.new, url: post_comments_path(comment.post)
+          = render 'posts/comments/form', comment: comment.children.new, url: post_comments_path(comment.post), parent_id: comment.id

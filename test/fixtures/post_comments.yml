@@ -1,7 +1,28 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+one:
+  content: MyText
+  post: one
+  user: one
+
+two:
+  content: MyText
+  post: two
+  user: two
+
 with_comments:
   content: this is comment with comments
   user: one
   post: one
+  ancestry: '/'
+
+nested:
+  content: commented comment
+  user: one
+  post: one
+  ancestry: "<%= ActiveRecord::FixtureSet.identify(:with_comments).to_s %>"
+
+
+
+
   

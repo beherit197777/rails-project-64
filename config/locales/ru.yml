@@ -1,4 +1,17 @@
 ru:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Электронная почта не может быть пустой"
+              taken: "Этот адрес электронной почты уже занят"
+            password:
+              blank: "Пароль не может быть пустым"
+      messages:
+        blank: "не может быть пустым"
+        taken: "уже занят"
   flash:
     notice:
       post_published: 'Пост опубликован'
@@ -6,6 +19,7 @@ ru:
     error:
       post_not_published: Не удалось создать пост. Проверьте введенные данные
       comment_not_published: Тело комментария не может быть пустым.
+      invalid_parent_comment: "Родительский комментарий принадлежит другому посту."
   ancestry:
     no_child_for_new_record: "Нет потомков для новой записи."
   new_post: "Новый пост"
@@ -25,4 +39,6 @@ ru:
         few: "%{count} минуты"
         many: "%{count} минут"
         other: "%{count} минут"
-  
+      less_than_x_minutes:
+        one: "меньше минуты"
+        other: "меньше %{count} минут"
