@@ -38,8 +38,10 @@ module Posts
     end
 
     private
+
     def comment_params
       params.require(:post_comment).permit(:content, :parent_id)
     end
   end
 end
+

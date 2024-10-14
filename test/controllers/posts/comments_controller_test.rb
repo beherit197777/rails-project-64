@@ -41,8 +41,6 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
 
     post_comment = @post.comments.find_by(@attrs)
 
-    Rails.logger.debug "Созданный комментарий: #{post_comment.inspect}"
-
     @comment_with_comments.reload
 
     assert_equal 2, @comment_with_comments.children.count
