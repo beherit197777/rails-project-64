@@ -18,6 +18,9 @@ ENV RAILS_ENV="production" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development test"
 
+# Устанавливаем переменную окружения RAILS_MASTER_KEY
+ENV RAILS_MASTER_KEY=b6356aa9a58242c712c1c59783bb1845
+
 # Стейдж для сборки образа
 FROM base AS build
 
@@ -48,30 +51,5 @@ RUN yarn install --frozen-lockfile
 # Копируем исходный код приложения
 COPY . .
 
-# Предкомпилируем assets для продакшена
-RUN SECRET_KEY_BASE_DUMMY=1 RAILS_MASTER_KEY=$RAILS_MASTER_KEY ./bin/rails assets:precompile
-
-# Удаляем node_modules после компиляции
-RUN rm -rf node_modules
-
-# Финальный стейдж
-FROM base
-
-# Копируем артефакты сборки: gems, приложение
-COPY --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
-COPY --from=build /rails /rails
-
-# Задаём права для пользователя Rails
-RUN groupadd --system --gid 1000 rails && \
-    useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
-    chown -R rails:rails db log storage tmp
-USER 1000:1000
-
-# Entrypoint для подготовки базы данных
-ENTRYPOINT ["/rails/bin/docker-entrypoint"]
-
-# Открываем порт 3000
-EXPOSE 3000
-
-# Стартуем сервер
-CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
+# Предкомпиляция ассетов для продакшена
+RUN SECRET_KEY_BASE_D
