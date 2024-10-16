@@ -54,10 +54,8 @@ Rails.application.configure do
   # config.assume_ssl = true
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
-  config.hosts << "https://collectiveblog-qrq4ijzs.b4a.run/"
-  config.hosts << "0.0.0.0"
-  config.hosts << "localhost"
+  config.force_ssl = false
+  config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
 
   # Skip http-to-https redirect for the default health check endpoint.
@@ -100,6 +98,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.public_file_server.enabled = true
+
 
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
@@ -108,4 +108,7 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+  config.hosts << "127.0.0.1"
+  config.hosts << "localhost"
+  config.hosts << "https://collectiveblog-qrq4ijzs.b4a.run/"
 end
