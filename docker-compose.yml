@@ -7,12 +7,11 @@ services:
     volumes:
       - data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "5433:5432"
 
   web:
     build: .
     command: bash -c "bundle exec rails db:migrate && bundle exec rails s -b 0.0.0.0 -p 3000"
-
     volumes:
       - ".:/app"
     ports:
@@ -21,7 +20,7 @@ services:
       - db
     environment:
       RAILS_ENV: production
-      DATABASE_URL: "postgres://myuser:mypassword@db:5432/bd_production"
+      DATABASE_URL: ${DATABASE_URL}
       RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
 
 volumes:
