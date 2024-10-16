@@ -61,7 +61,7 @@ RUN rm -rf node_modules
 # Final stage for app image
 FROM base
 
-# Copy built artifacts: gems, application
+# Copy built artifacts: gems, application1
 COPY --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
 COPY --from=build /rails /rails
 
