@@ -18,6 +18,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      - mynetwork
 
   web:
     build: .
@@ -43,10 +45,12 @@ services:
       DATABASE_URL: ${DATABASE_URL}
       RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
       SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+    networks:
+      - mynetwork
 
 volumes:
   data:
 
 networks:
-  default:
+  mynetwork:
     driver: bridge
