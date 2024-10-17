@@ -110,5 +110,4 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   config.hosts << "127.0.0.1"
   config.hosts << "localhost"
-  config.hosts << "https://collectiveblog-qrq4ijzs.b4a.run/"
 end

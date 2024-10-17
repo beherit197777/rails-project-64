@@ -6,7 +6,7 @@ Simple blog engine on Ruby on Rails.
 
 Users can read posts, publish their own posts, leave comments on posts and comments and like posts.
 
-The [demo](https://rails-project-64-2ny7.onrender.com) is published on [render](https://render.com/) service
+The [demo](http://rails-collective-blog-ru.beherit-projects.ru/ 
 
 ### Implementation Features
 
