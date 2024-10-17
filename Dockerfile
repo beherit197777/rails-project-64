@@ -9,7 +9,7 @@ WORKDIR /rails
 
 # Устанавливаем базовые пакеты и PostgreSQL библиотеки
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libjemalloc2 libvips sqlite3 libpq-dev && \
+    apt-get install --no-install-recommends -y curl libjemalloc2 libvips sqlite3 libpq-dev netcat-openbsd && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Устанавливаем переменные окружения для продакшена
