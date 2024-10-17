@@ -55,8 +55,7 @@ Rails.application.configure do
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = false
-  config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
-
+  config.host_authorization = { exclude: ->(request) { request.path == '/up' } }
 
   # Skip http-to-https redirect for the default health check endpoint.
   # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
@@ -100,7 +99,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.public_file_server.enabled = true
 
-
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
   #   "example.com",     # Allow requests from example.com
@@ -108,6 +106,6 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
-  config.hosts << "127.0.0.1"
-  config.hosts << "localhost"
+  config.hosts << '127.0.0.1'
+  config.hosts << 'localhost'
 end

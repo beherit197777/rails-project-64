@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_17_100523) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_17_100523) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -20,8 +23,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_17_100523) do
 
   create_table "post_comments", force: :cascade do |t|
     t.text "content"
-    t.integer "user_id", null: false
-    t.integer "post_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ancestry"
@@ -31,8 +34,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_17_100523) do
   end
 
   create_table "post_likes", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "post_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id", "user_id"], name: "uniq_post_like_per_user", unique: true
@@ -43,8 +46,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_17_100523) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.integer "category_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "likes_count", default: 0
